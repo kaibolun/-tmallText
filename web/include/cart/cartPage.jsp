@@ -5,8 +5,8 @@
 <script>
     var deleteOrderItem = false;
     var deleteOrderItemid = 0;
+    // 删除商品 盒子 //
     $(function () {
-
         $("a.deleteOrderItem").click(function () {
             deleteOrderItem = false;
             var orderItem = $(this).attr("orderItem");
@@ -18,7 +18,10 @@
             $("#deleteConfirmModal").modal('hide');
         });
 
-        $('#deleteConfirmModal').on('hidden.bs.modal', function (e) {
+        //删除//
+        $('#deleteConfirmModal').on('hidden.bs.modal', function () {
+            $("img.cartProductItemIfSelected")
+
             if (deleteOrderItem) {
                 var page = "foredeleteOrderItem";
                 $.post(
@@ -36,7 +39,7 @@
 
             }
         });
-
+        // 选项//
         $("img.cartProductItemIfSelected").click(function () {
             var selectit = $(this).attr("selectit");
             if ("selectit" == selectit) {
@@ -49,10 +52,11 @@
                 $(this).attr("selectit", "selectit");
                 $(this).parents("tr.cartProductItemTR").css("background-color", "#FFF8E1");
             }
-            syncSelect();
-            syncCreateOrderButton();
-            calcCartSumPriceAndNumber();
+            syncSelect(); //单选框变化//
+            syncCreateOrderButton(); //结算变化//
+            calcCartSumPriceAndNumber();//总价变化//
         });
+        //全选//
         $("img.selectAllItem").click(function () {
             var selectit = $(this).attr("selectit");
             if ("selectit" == selectit) {
@@ -73,17 +77,17 @@
                     $(this).parents("tr.cartProductItemTR").css("background-color", "#FFF8E1");
                 });
             }
-            syncCreateOrderButton();
-            calcCartSumPriceAndNumber();
+            syncCreateOrderButton();//结算按钮变化//
+            calcCartSumPriceAndNumber();//总价计算和显示//
 
 
         });
 
+        //数量设置//
         $(".orderItemNumberSetting").keyup(function () {
             var pid = $(this).attr("pid");
             var stock = $("span.orderItemStock[pid=" + pid + "]").text();
             var price = $("span.orderItemPromotePrice[pid=" + pid + "]").text();
-
             var num = $(".orderItemNumberSetting[pid=" + pid + "]").val();
             num = parseInt(num);
             if (isNaN(num))
@@ -93,9 +97,10 @@
             if (num > stock)
                 num = stock;
 
-            syncPrice(pid, num, price);
+            syncPrice(pid, num, price);//数量变后总价改变，数量传入后端//
         });
 
+        //增加商品数//
         $(".numberPlus").click(function () {
 
             var pid = $(this).attr("pid");
@@ -109,8 +114,9 @@
             num++;
             if (num > stock)
                 num = stock;
-            syncPrice(pid, num, price);
+            syncPrice(pid, num, price); //数量变后总价改变，数量传入后端//
         });
+        //减少商品数//
         $(".numberMinus").click(function () {
             var pid = $(this).attr("pid");
             var stock = $("span.orderItemStock[pid=" + pid + "]").text();
@@ -119,7 +125,7 @@
             --num;
             if (num <= 0)
                 num = 1;
-            syncPrice(pid, num, price);
+            syncPrice(pid, num, price);//数量变后总价改变，数量传入后端//
         });
 
         $("button.createOrderButton").click(function () {
@@ -136,7 +142,7 @@
 
 
     });
-
+    //结算按钮，有选就亮，否则暗//
     function syncCreateOrderButton() {
         var selectAny = false;
         $(".cartProductItemIfSelected").each(function () {
@@ -155,7 +161,7 @@
         }
 
     }
-
+    //单选框变化//
     function syncSelect() {
         var selectAll = true;
         $(".cartProductItemIfSelected").each(function () {
@@ -172,6 +178,7 @@
 
     }
 
+    //编辑价格格式转换为可计算格式计算后并显示在页面//
     function calcCartSumPriceAndNumber() {
         var sum = 0;
         var totalNumber = 0;
@@ -191,7 +198,7 @@
         $("span.cartTitlePrice").html("￥" + formatMoney(sum));
         $("span.cartSumNumber").html(totalNumber);
     }
-
+        //计算价格再转回带￥格式，传入后端加入订单商品数量//
     function syncPrice(pid, num, price) {
         $(".orderItemNumberSetting[pid=" + pid + "]").val(num);
         var cartProductItemSmallSumPrice = formatMoney(num * price);
