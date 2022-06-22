@@ -20,7 +20,7 @@
 
         //删除//
         $('#deleteConfirmModal').on('hidden.bs.modal', function () {
-            $("img.cartProductItemIfSelected")
+          /*  $(".cartProductItemIfSelected").attr("selectit","false");*/
 
             if (deleteOrderItem) {
                 var page = "foredeleteOrderItem";
@@ -133,7 +133,7 @@
             $(".cartProductItemIfSelected").each(function () {
                 if ("selectit" == $(this).attr("selectit")) {
                     var orderItem = $(this).attr("orderItem");
-                    params += "&orderItem=" + orderItem;
+                    params += "&orderItemId=" + orderItem;
                 }
             });
             params = params.substring(1);

@@ -201,7 +201,7 @@ public class ForeServlet extends BaseForeServlet {
     }
 
     public String buy(HttpServletRequest request, HttpServletResponse response, Page page) {
-        String[] oiids = request.getParameterValues("orderItem");
+        String[] oiids = request.getParameterValues("orderItemId");
         List<OrderItem> orderItems = new ArrayList<>();
         float total = 0;
         for (String strid : oiids) {
