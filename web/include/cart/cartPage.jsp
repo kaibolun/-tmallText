@@ -29,11 +29,17 @@
                     {"orderItem": deleteOrderItemid},
                     function (result) {
                         if ("success" == result) {
+                            // if($("img.cartProductItemIfSelected[orderItem=" + deleteOrderItemid + "]").attr("selectit")=="selectit"&&
+                            //     $("img.selectAllItem").attr("selectit")=="selectit"){
+                            // }
                             $("img.cartProductItemIfSelected[orderItem=" + deleteOrderItemid + "]").attr("selectit","false");
-                            syncSelect(); //单选框变化//
                             syncCreateOrderButton(); //结算变化//
                             calcCartSumPriceAndNumber();//总价变化//
-                            $("tr.cartProductItemTR[orderItem=" + deleteOrderItemid + "]").hide();
+                            syncCreateOrderButton();//结算按钮是否明亮//
+                            checkall();//查看是否全选
+                            syncSelect(); //单选框变化//
+
+                            $("tr.cartProductItemTR[orderItem=" + deleteOrderItemid + "]").remove();
                         }
                         else {
                             location.href = "login.jsp";
@@ -43,7 +49,7 @@
 
             }
         });
-        // 选项//
+        // 单选选项//
         $("img.cartProductItemIfSelected").click(function () {
             var selectit = $(this).attr("selectit");
             if ("selectit" == selectit) {
@@ -83,10 +89,27 @@
             }
             syncCreateOrderButton();//结算按钮变化//
             calcCartSumPriceAndNumber();//总价计算和显示//
-
-
         });
+       function checkall() {
 
+           var selectit = $("img.selectAllItem").attr("selectit");
+           if ("selectit" == selectit) {
+               $("img.selectAllItem").attr("src", "img/site/cartSelected.png");
+               $("img.selectAllItem").attr("selectit", "selectit");
+               $(".cartProductItemIfSelected").each(function () {
+                   $(this).attr("src", "img/site/cartSelected.png");
+                   $(this).attr("selectit", "selectit");
+               });
+           }
+           else {
+               $("img.selectAllItem").attr("src", "img/site/cartNotSelected.png");
+               $("img.selectAllItem").attr("selectit", "false");
+               $(".cartProductItemIfSelected").each(function () {
+                   $(this).attr("src", "img/site/cartNotSelected.png");
+                   $(this).attr("selectit", "false");
+               });
+           }
+       }
         //数量设置//
         $(".orderItemNumberSetting").keyup(function () {
             var pid = $(this).attr("pid");
