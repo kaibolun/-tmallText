@@ -5,7 +5,7 @@
 <script>
     var deleteOrderItem = false;
     var deleteOrderItemid = 0;
-    // 删除商品 盒子 //
+    // 删除删除弹窗 并记录删除的商品项id //
     $(function () {
         $("a.deleteOrderItem").click(function () {
             deleteOrderItem = false;
@@ -13,15 +13,15 @@
             deleteOrderItemid = orderItem;
             $("#deleteConfirmModal").modal('show');
         });
+
         $("button.deleteConfirmButton").click(function () {
             deleteOrderItem = true;
+            /*  $(".cartProductItemIfSelected").attr("selectit","false");*/
             $("#deleteConfirmModal").modal('hide');
         });
 
-        //删除//
+        //删除商品 盒子//
         $('#deleteConfirmModal').on('hidden.bs.modal', function () {
-          /*  $(".cartProductItemIfSelected").attr("selectit","false");*/
-
             if (deleteOrderItem) {
                 var page = "foredeleteOrderItem";
                 $.post(
@@ -29,6 +29,10 @@
                     {"orderItem": deleteOrderItemid},
                     function (result) {
                         if ("success" == result) {
+                            $("img.cartProductItemIfSelected[orderItem=" + deleteOrderItemid + "]").attr("selectit","false");
+                            syncSelect(); //单选框变化//
+                            syncCreateOrderButton(); //结算变化//
+                            calcCartSumPriceAndNumber();//总价变化//
                             $("tr.cartProductItemTR[orderItem=" + deleteOrderItemid + "]").hide();
                         }
                         else {
