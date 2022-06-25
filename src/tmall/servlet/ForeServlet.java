@@ -51,7 +51,6 @@ public class ForeServlet extends BaseForeServlet {
         String name = request.getParameter("name");
         name = HtmlUtils.htmlEscape(name);
         String password = request.getParameter("password");
-
         User user = userDAO.get(name, password);
 
         if (null == user) {

@@ -5,7 +5,7 @@
         <img id="simpleLogo" class="simpleLogo" src="img/site/simpleLogo.png">
     </a>
     <form action="foresearch" method="post">
-        <div class="searchDiv pull-right">
+        <div class="searchDiv ">
             <input type="text" placeholder="平衡车 原汁机" name="keyword">
             <button class="searchButton" type="submit">搜天猫</button>
             <div class="searchBelow">

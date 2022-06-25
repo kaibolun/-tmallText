@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
 
-<a href="/home.jsp">
+<a href="/forehome">
     <img id="logo" src="img/site/logo.gif" class="logo">
 </a>
 

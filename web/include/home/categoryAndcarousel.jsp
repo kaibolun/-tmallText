@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" isELIgnored="false" %>
 
 <script>
+
     function showProductsAsideCategorys(cid) {
         $("div.eachCategory[cid=" + cid + "]").css("background-color", "white");
         $("div.eachCategory[cid=" + cid + "] a").css("color", "#87CEFA");
