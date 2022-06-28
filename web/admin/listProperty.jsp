@@ -78,7 +78,7 @@
                     </tr>
                     <tr class="submitTR">
                         <td colspan="2" align="center">
-                            <input type="hidden" name="cid" value="83"> <%--${category.id}--%>
+                            <input type="hidden" name="cid" value="${category.id}">
                             <button type="submit" class="btn btn-success">提交</button>
                         </td>
                     </tr>
