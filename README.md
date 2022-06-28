@@ -157,8 +157,6 @@ BaseBackServlet 继承了 HttpServlet 并重写了 service 方法，其核心代
 
 ![产品页](https://upload-images.jianshu.io/upload_images/14923529-d7a5bfc9f920b5e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-本篇博客所讲不足整个项目的 1/10 ，有兴趣的朋友请移步 [github 项目的地址](https://github.com/czwbig/Tmall_JavaEE) 。
-
 
 ### 参考
 **[天猫整站学习教程](http://how2j.cn/k/tmall-j2ee/tmall-j2ee-894/894.html?p=55563)** 里面除了本项目，还有 Java 基础，前端，Tomcat 及其他中间件等教程， 可以注册一个账户，能保存学习记录。
