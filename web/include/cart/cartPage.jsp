@@ -23,7 +23,7 @@
         //删除商品 盒子//
         $('#deleteConfirmModal').on('hidden.bs.modal', function () {
             if (deleteOrderItem) {
-                var url = "foredeleteOrderItem";
+                var page = "foredeleteOrderItem";
                 $.post(
                     page,
                     {"orderItem": deleteOrderItemid},

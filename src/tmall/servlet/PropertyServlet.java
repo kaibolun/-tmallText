@@ -64,7 +64,7 @@ public class PropertyServlet extends BaseBackServlet {
         page.setParam("&cid=" + category.getId());
 
         request.setAttribute("ps", ps);
-        request.setAttribute("c", category);
+        request.setAttribute("category", category);
         request.setAttribute("page", page);
 
         return "admin/listProperty.jsp";

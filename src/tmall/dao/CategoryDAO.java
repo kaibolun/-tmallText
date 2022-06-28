@@ -14,7 +14,6 @@ public class CategoryDAO {
         try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement()) {
 
             String sql = "select count(*) from Category";
-
             ResultSet rs = s.executeQuery(sql);
             while (rs.next()) {
                 total = rs.getInt(1);

@@ -3,13 +3,21 @@
          pageEncoding="UTF-8" isELIgnored="false" %>
 
 <script>
+    // $(function () {
+    //     $("#name").blur(function () {
+    //         alert( $("#name").val());
+    //     })
+    //     $(function(){
+    //         alert( $("#name").val());
+    //     } )
+    // })
+
     $(function () {
 
         <c:if test="${!empty msg}">
         $("span.errorMessage").html("${msg}");
         $("div.registerErrorMessageDiv").css("visibility", "visible");
         </c:if>
-
         $(".registerForm").submit(function () {
             if (0 == $("#name").val().length) {
                 $("span.errorMessage").html("请输入用户名");
@@ -31,8 +39,22 @@
                 $("div.registerErrorMessageDiv").css("visibility", "visible");
                 return false;
             }
-
             return true;
+        });
+
+        $("#name").blur(function () {
+            var name=$("#name").val();
+            $.post(
+                "foreregisterAjaxHome",
+                {"name":name},
+                function (flag) {
+                if(flag=="success"){
+                    $(".ajaxStringReturn").html("账户可用").css("color","green");
+                }
+                else {
+                    $(".ajaxStringReturn").html("账户已存在").css("color","red");
+                }
+            })
         });
     })
 </script>
@@ -50,11 +72,13 @@
         <table class="registerTable" align="center">
             <tr>
                 <td class="registerTip registerTableLeftTD">设置会员名</td>
-                <td></td>
+                <td class="ajaxStringReturn"></td>
             </tr>
             <tr>
-                <td class="registerTableLeftTD">登陆名</td>
-                <td class="registerTableRightTD"><input id="name" name="name" placeholder="会员名一旦设置成功，无法修改"></td>
+                <td class="registerTableLeftTD" >登陆名</td>
+                <td class="registerTableRightTD" id ="ajaxLogin" >
+                    <input id="name" name="name" placeholder="会员名一旦设置成功，无法修改" >
+                </td>
             </tr>
             <tr>
                 <td class="registerTip registerTableLeftTD">设置登陆密码</td>

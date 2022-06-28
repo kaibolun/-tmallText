@@ -26,6 +26,7 @@ public class ForeAuthFilter implements Filter {
                 "checkLogin",
                 "register",
                 "loginAjax",
+                "registerAjaxHome",
                 "login",
                 "product",
                 "category",

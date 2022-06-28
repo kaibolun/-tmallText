@@ -11,6 +11,8 @@ import tmall.util.Page;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -30,12 +32,10 @@ public class ForeServlet extends BaseForeServlet {
         name = HtmlUtils.htmlEscape(name);
         System.out.println(name);
         boolean exist = userDAO.isExist(name);
-
         if (exist) {
             request.setAttribute("msg", "用户名已经被使用，不能使用");
             return "register.jsp";
         }
-
         User user = new User();
         user.setName(name);
         user.setPassword(password);
@@ -60,6 +60,19 @@ public class ForeServlet extends BaseForeServlet {
         request.getSession().setAttribute("user", user);
         return "@forehome";
     }
+
+    public String registerAjaxHome(HttpServletRequest request, HttpServletResponse response, Page page) {
+
+        String name = request.getParameter("name");
+        name = HtmlUtils.htmlEscape(name);
+        Boolean isExist = userDAO.isExist(name);
+        if (isExist) {
+            return "%fail";
+        }else {
+        return "%success";
+        }
+    }
+
 
     public String logout(HttpServletRequest request, HttpServletResponse response, Page page) {
         request.getSession().removeAttribute("user");
