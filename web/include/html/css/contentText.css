@@ -1,0 +1,52 @@
+#contentText{
+    width:100%;
+    height: auto;
+    border: 1px solid red;
+}
+#contentText01{
+    position: relative;
+    width:300px;
+    height: 250px;
+
+    border: 1px solid #000000;}
+#contentText02{
+    position: relative;
+    left: 300px;
+    top: -252px;
+    width:500px;
+    height: 280px;
+    border-radius: 20px;
+    border: 1px solid #999999;
+}
+#contentText03{
+    position: relative;
+    left: 300px;
+    top: -150px;
+    width:500px;
+    height: 300px;
+
+    border: 1px solid #C40000;
+}
+#contentText04{
+    position: relative;
+    left: 830px;
+    top: -755px;
+    width:250px;
+    height: 250px;
+
+    border: 1px solid #C40000;
+}
+#lunbo1{
+    width: 240px;
+    height: 200px;
+    border: 1px solid #C40000;
+}
+#lunbo2{
+    position: relative;
+   top: -200px;
+    left:260px;
+    width: 240px;
+    height: 200px;
+    border: 1px solid #C40000;
+}
+

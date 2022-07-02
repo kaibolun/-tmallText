@@ -1,0 +1,34 @@
+#top01{
+    position: relative;
+    padding-left: 220px;
+}
+#top02{
+    padding-left: 450px;
+}
+.top{
+    line-height: 26px;
+    font-size: 2px;
+    color: #999;
+    text-decoration :none;
+    margin: 6px;
+
+}
+.top:hover{
+    color: red;
+}
+
+span{
+    line-height: 26px;
+    font-size: 2px;
+    color: #999;
+    text-decoration :none;
+    margin: 6px;
+}
+.icon{
+
+    position: relative;
+    top: 2px;
+    width: 15px;
+    height: 15px;
+
+}

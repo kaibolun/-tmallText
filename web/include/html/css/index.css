@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #f6e4e4;
+
+}
+#top{
+    width: 1530px;
+    height: 30px;
+    background-color: #f2f2f2;
+}
+#header{
+
+    width: 1200px;
+    height: 145px;
+    text-align:center;
+    margin: 0px auto;
+    background: rgba(220, 38, 38, 0);
+    
+}
+#content{
+    width: 1200px;
+    height: 750px;
+    text-align:center;
+    margin: 0px auto;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+#footer{
+    width: 1530px;
+    height: 930px;
+    border: 1px solid black;
+}

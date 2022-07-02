@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.banner1 {
+    border-radius: 12px;
+    width: 250px;
+    height: 200px;
+    border: 1px solid black;
+    /*  margin: 100px auto;*/
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+.banner1 .slide1 {
+    width: 4000px;
+    height: 400px;
+    position: absolute;
+    /* left: -0px;*/
+}
+.banner1 .slide1 .pic {
+    width: 520px;
+    height: 280px;
+    /*line-height: 400px;*/
+    text-align: center;
+    float: left;
+    font-size: 72px;
+    color: white;
+}
+.banner1 .slide1 .q {
+    background-color: black;
+}
+.banner1 .slide1 .w {
+    background-color: pink;
+}
+.banner1 .slide1 .e {
+    background-color: purple;
+}
+.banner1 .slide1 .r {
+    background-color: rgb(38, 176, 171);
+
+}
+
+.banner1 .do{
+    width: 120px;
+    height: 30px;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    margin-left: -50px;
+    z-index: 2;/*让圆点显示在轮播图上面*/
+}
+.banner1 .do .dos{
+    /*圆点的一些样式*/
+    width:10px;
+    height: 10px;
+    float: left;
+    border-radius: 70%;
+    margin:5px 6px;
+    background-color: rgba(7,17,27,0.4);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.8) inset;
+    cursor:pointer;
+
+}
+.banner1 .dos .active{
+    /*小圆点高亮的样式*/
+    box-shadow: 0 0 0 1px rgba(251,81,0,0.9) inset;
+    background-color: #fb5300;
+}
+.banner1 .arrow{
+    /*左箭头*/
+    width: 0;
+    height: 0;
+    /* border-right: 30px solid rgba(255,255,255,.5);*/
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    position: absolute;
+    left:0;
+    top: 50%;
+    margin-top: -60px;
+    z-index: 2;
+}
+.banner1 .arrow:hover{
+    /*鼠标移动到箭头时候的样式*/
+    border-right-color:white ;
+}
+.banner1 .next{
+    /*右箭头*/
+    left:auto;
+    right: 0;
+    top: 50%;
+    margin-top: -30px;
+    transform: rotate(180deg);
+    z-index: 2;
+}
